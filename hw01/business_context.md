@@ -1,0 +1,13 @@
+1. The exact prompt I sent:
+GOAL: I want to think through the business side of my company Wildcat Capital's lending portfolio, not just crunch numbers.
+CONTEXT: I'm working with a dataset called wildcat_loans_clean.csv in this folder. It has 5 loan purposes (Auto, Personal, Home Improvement, Education, Business), 4 loan statuses (Current, Paid Off, Default, Delinquent), and borrower info like credit score, DTI ratio, and annual income. I don't need any calculations run on the file for this. I want to reason through the business implications.
+ACTION: Answer these three questions for me:
+
+1. Wildcat tracks credit score, DTI, and annual income for every borrower. What are the strengths and blind spots of leaning on credit score and DTI as the main risk signals, and where does annual income add info the other two miss?
+2. Wildcat's portfolio spans five loan purposes: Auto, Personal, Home Improvement, Education, Business, which likely differ in loan size, collateral, and term. What would a portfolio committee expect to see broken out by loan purpose in a quarterly review, and why might one blended default/delinquency rate hide risk leadership needs to see?
+3. Wildcat's statuses are Current, Paid Off, Default, and Delinquent. What's the real difference between delinquency and default in terms of how a lender should think about loss reserves, and what risk does Wildcat run if it treats the two as interchangeable in reporting?
+
+OUTPUT: Plain text response, no markdown headers, thorough but not too lengthy
+
+2. What Claude's response said is that credit score and DTI are useful, but they're really just a snapshot from the day the loan was made, and a percentage doesn't show how much cash a borrower actually has left over each month — that's the gap annual income fills. I also wouldn't blend all five loan purposes into one default rate, since a bad auto loan means you repossess the car while a bad personal loan means you recover nothing, so the same 3% can mean very different losses. On top of that, faster-growing segments are full of loans too new to have gone bad yet, which makes the blended number look better than the book actually is. And late isn't the same as dead — most delinquent borrowers catch up, so delinquency is the early warning while default is the actual loss event. If we report the two as one thing, we lose that warning, our reserves end up wrong, and audit will catch it.
+3. So if late payments are the warning sign, how many of those borrowers actually catch up vs never pay again? And does that change by loan type? Because if business loans go bad way more often than car loans, we shouldn't be treating every late payment the same.
